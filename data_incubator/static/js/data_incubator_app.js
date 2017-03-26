@@ -47,9 +47,9 @@ function uiHandleSaveQuestionDetails()
         }
     }
     else {
-        // TODO: Notify the user of failure
-        console.log('Unexpected status when saving snapshot: ' + this.status);
+        console.log('Unexpected status when creating new question: ' + this.status);
         console.log(this.response);
+        window.location.assign("/app/error/");
     }
 }
 
