@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import patterns,url
 from django.contrib import admin
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,RedirectView
 from data_incubator import views
 admin.autodiscover()
 admin.site.site_header = 'Data Incubator Administration'
 admin.site.site_title = 'Data Incubator Administration'
 
+# app and api URL redirections
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index, name='index'),
+    url(r'^$', RedirectView.as_view(url='/app/questions/', permanent=False), name='index'),
     url(r'^app/base.html$', TemplateView.as_view(template_name='base.html')),
     url(r'^app/questions/$', views.QuestionList.as_view()),
     url(r'^app/question/(?P<question_id>[0-9]+)/$', views.QuestionDetail.as_view(), name='question'),

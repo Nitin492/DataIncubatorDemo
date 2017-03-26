@@ -1,10 +1,10 @@
-HTMLElement.prototype.click = function() {
-   var evt = this.ownerDocument.createEvent('MouseEvents');
-   evt.initEvent('click', true, true, this.ownerDocument.defaultView, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
-   this.dispatchEvent(evt);
-}
-
-
+/*
+Code to create new question
+uiSaveQuestionDetails - handles getting data from html tags and puts in JSON payload
+saveQuestionDetails - sends xhr request with JSON payload using POST
+uiHandleSaveQuestionDetails - handles redirections after the receiving response from backend
+uiHandleSaveQuestionDetailsError - handles error conditions
+ */
 function uiSaveQuestionDetails()
 {
     var snObject = {};
@@ -24,6 +24,7 @@ function uiSaveQuestionDetails()
     console.log(jsonPayload);
     saveQuestionDetails(jsonPayload);
 }
+
 function saveQuestionDetails(payload)
 {
     var oReq = new XMLHttpRequest();
@@ -33,16 +34,15 @@ function saveQuestionDetails(payload)
     oReq.setRequestHeader("Content-Type", "application/json");
     oReq.send(payload);
 }
+
 function uiHandleSaveQuestionDetails()
 {
     if (this.status == 201) {
-        // All is well, let's return to the snapshot detail page
-        console.log('uiHandleSaveSnapshot OK: ' + this.status);
+        console.log('uiHandleSaveQuestionDetails OK: ' + this.status);
         console.log('payload: ' + this.response);
-
         var objres = JSON.parse(this.response);
         if (objres) {
-            console.log('objres: ' + objres.snap_id);
+            console.log('objres: ' + objres.que_id);
             window.location.assign("/app/createquestion/");
         }
     }
@@ -55,13 +55,19 @@ function uiHandleSaveQuestionDetails()
 
 function uiHandleSaveQuestionDetailsError()
 {
-    // TODO: Notify the user of failure
     console.log('Error saving details: ' + this.status);
     console.log(this.response);
+    window.location.assign("/app/error/");
 }
 
-
-function uiGetFeedback(id)
+/*
+Code to get feedback and save score to database
+uiGetFeedback - handles getting data from html tags and puts in JSON payload
+getFeedback - sends xhr request with JSON payload using POST
+uiHandleGetFeedback - handles redirections after the receiving response from backend
+uiHandleGetFeedbackError - handles error conditions
+ */
+function uiGetFeedback()
 {
     var snObject = {};
     var elt = document.getElementById('que_id');
@@ -72,6 +78,7 @@ function uiGetFeedback(id)
     console.log(jsonPayload);
     getFeedback(jsonPayload);
 }
+
 function getFeedback(payload)
 {
     var oReq = new XMLHttpRequest();
@@ -81,11 +88,11 @@ function getFeedback(payload)
     oReq.setRequestHeader("Content-Type", "application/json");
     oReq.send(payload);
 }
+
 function uiHandleGetFeedback()
 {
     if (this.status == 201) {
-        // All is well, let's return to the snapshot detail page
-        console.log('uiHandleSaveSnapshot OK: ' + this.status);
+        console.log('uiHandleGetFeedback OK: ' + this.status);
         console.log('payload: ' + this.response);
 
         var objres = JSON.parse(this.response);
@@ -93,24 +100,24 @@ function uiHandleGetFeedback()
             console.log('objres: ' + objres.flag);
             if(objres.flag){
                 var elt = document.getElementById('feedback');
-                elt.innerHTML = "<h3>Correct Solution</h3>"
+                elt.innerHTML = "<h3>Correct Solution! Score: "+objres.score+"</h3>"
             }
             else{
                 var elt = document.getElementById('feedback');
-                elt.innerHTML = "<h3>Incorrect Solution! Try Again</h3>"
+                elt.innerHTML = "<h3>Incorrect Solution! Try Again. Score: 0</h3>"
             }
         }
     }
     else {
-        // TODO: Notify the user of failure
-        console.log('Unexpected status when saving snapshot: ' + this.status);
+        console.log('Unexpected status when getting feedback: ' + this.status);
         console.log(this.response);
+        window.location.assign("/app/error/");
     }
 }
 
 function uiHandleGetFeedbackError()
 {
-    // TODO: Notify the user of failure
     console.log('Error saving details: ' + this.status);
     console.log(this.response);
+    window.location.assign("/app/error/");
 }

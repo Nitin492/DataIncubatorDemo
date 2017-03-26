@@ -1,6 +1,8 @@
+<!-- Backend Access page to create new questions -->
+<!-- Improve Javascript so that only required input box is visible depending on question type-->
 {% extends "base.html" %}
-
 {% block content %}
+
 <div style="align-content: center;text-align: center;" >
 <div class="form-group">
     <h2>Enter your Question's Details</h2>
@@ -11,7 +13,7 @@
         </tr>
         <tr>
             <td><label for="description">Description:</label></td>
-            <td><textarea cols="50" rows="5" id="que_description">Description</textarea></td>
+            <td><textarea cols="50" rows="5" id="que_description" placeholder="Description"></textarea></td>
         </tr>
         <tr>
             <td><label>Specify the question type:</label></td>
@@ -26,7 +28,7 @@
         </tr>
         <tr>
             <td><label for="testcase">Testcase:</label></td>
-            <td><input type="text" id="que_testcase" /></td>
+            <td><input type="text" id="que_testcase" placeholder="1 1 2"/></td>
         </tr>
         <tr>
             <td><label for="Solution">Solution:</label></td>
@@ -39,4 +41,5 @@
     <script>
         document.addEventListener('DOMContentLoaded', onLoad, false);
     </script>
+
 {% endblock %}
