@@ -1,0 +1,220 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 80px tall */
+body {
+  padding-top: 80px;
+  background: url("../nyu_dashboard_icons/background.jpg");
+}
+.container-fluid-background{
+    background: #fff;
+    padding: 0;
+    margin:0 0 0 0;"
+}
+
+/*
+ * General
+ */
+.main-bg{
+    background:#57068c;
+}
+.border-bottom{
+    border: 0;
+    height: 3px;
+    background: #f2f2f2;
+    margin-bottom: 10px;
+}
+.main-bg .container-fluid{
+    min-height:80px;
+}
+.panel-heading h5{
+    width: 160px;
+}
+#navbar{
+    margin:15px 0;
+}
+.title-border,.title-border2,.title-border3{
+    border:1px solid #4a4f55; display: block;
+}
+.title-border2{ height: 42px;}
+.title-border img{
+    width: 35px;
+    margin: 2px 4px 2px 5px;
+}
+.title-border3 img{
+    width: 35px;
+    margin: 2px 4px 2px 6px;
+}
+.title-border2 img{
+    width: 40px;
+    margin: 6px 4px 4px 5px;
+}
+.tot_bg,.tot_bg3,.tot_bg4{
+    background-color: #4a4f55; display: inline-block;  padding: 2px 1px;
+}
+.tot_bg p,.tot_bg3 p,.tot_bg4 p{
+    display: inline;
+    color: #ffffff;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 0;
+}
+.chart-body img{
+    float: left;
+    display: block;
+}
+.graph-heading{
+    margin: 10px 0;
+}
+.main-bg .navbar-nav > li > a{
+    font-size: 30px;
+    color: white;
+}
+.main-bg .navbar-nav > li > a:hover{
+    color: #ffd200;
+}
+footer p{
+    margin-left: 10px;
+}
+.call-meet-imgs{
+    float: none;
+}
+
+.images-4 img{
+    max-width:58px;
+    max-height: 50px;
+}
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/*
+ * NYU-specific stuff here
+ */
+p.graph-heading {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 800;
+    color: #4a4f55;
+}
+.footer{
+    position:fixed;
+    right:0;
+    bottom:0;
+    left:0;
+    padding:1rem;
+    background-color:#57068c;
+    text-align:center;
+    color:white;
+}
+
+/*changes on 20th Oct 2015 */
+text.highcharts-title{font-size: 14px !important;}
+.panel-heading h5{width:500px;}
+
+/* Social Media */
+.twitterFollowersTitle{color:#fff; background-color: #58008E;  padding:10px 0px; text-align: center;}
+.MessagingTitle{color:#fff; background-color: #008997;  padding:10px 10px; text-align: center; font-size: 13px;}
+.facebookFollowersTitle{color:#fff; background-color: #FFD400;  padding:10px 0px; text-align: center;}
+.titleStyle{font-size: 32px; text-align: center; font-weight: bold;color: #58008E;}
+.facebookTitleStyle{font-size: 32px; text-align: center; font-weight: bold;color: #FFD400;}
+.messagingTitleStyle{font-size: 32px; text-align: center; font-weight: bold;color: #008997;}
+.innerPadding{  padding: 30px 5px;}
+.mImg{padding-bottom:5px;}

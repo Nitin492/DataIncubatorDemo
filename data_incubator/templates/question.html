@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="align-content: center; text-align: center">
+    <h3>Solve the Following:</h3>
+</div>
+<div class="row">
+    <div class="col-xs-10 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-ld-10 col-ld-offset-1">
+        <br/>
+        {% for question in question_list %}
+            <h2>{{ question.text }}</h2>
+            <input type="text" id="que_id" style="visibility: hidden;" value="{{ question.id }}">
+            <br/>
+            <p style="font-size: 20px;">{{ question.description }}</p>
+            {% if question.single_valued %}
+                <div>
+                    <label for="ans">Enter your Solution:</label>
+                    <input type="text" id="que_ans" />
+                </div>
+            {% endif %}
+            {% if question.coding %}
+                <div>
+                    <label for="ans">Enter your code: (Only Python code supported! Please define code in a function)</label>
+                    <br/>
+                    <textarea cols="50" rows="5" id="que_ans" placeholder="Enter your code"></textarea>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <br/>
+        <button id="doSave" onclick="uiGetFeedback();" class="btn btn-primary" >Submit Solution</button>
+        <br/><br/>
+        <div id="feedback"></div>
+    </div>
+
+</div>
+{% endblock %}

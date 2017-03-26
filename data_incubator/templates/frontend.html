@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="align-content: center; text-align: center">
+    <h3>Questions List:</h3>
+</div>
+<div class="row">
+    <div class="col-xs-10 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-ld-10 col-ld-offset-1">
+        <br/>
+        <table style = "text-align: left; margin-left:auto; margin-right:auto; border-collapse:separate; border-spacing:1em;">
+            <tr>
+                <th>Question</th>
+                <th>Max. Score</th>
+            </tr>
+
+            {% for question in question_list %}
+                <tr>
+                    <td><a href="{% url 'question' question.id %}">{{ question.text }}</a></td>
+                    <td>100</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+        </div>
+</div>
+{% endblock %}

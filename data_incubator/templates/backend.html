@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="align-content: center;text-align: center;" >
+<div class="form-group">
+    <h2>Enter your Question's Details</h2>
+    <table style = "text-align: left; margin-left:auto; margin-right:auto; border-collapse:separate; border-spacing:1em;">
+        <tr>
+            <td><label for="Text">Question Text:</label></td>
+            <td><input type="text" id="que_text"  placeholder="Ex: What is 1+1?" /></td>
+        </tr>
+        <tr>
+            <td><label for="description">Description:</label></td>
+            <td><textarea cols="50" rows="5" id="que_description">Description</textarea></td>
+        </tr>
+        <tr>
+            <td><label>Specify the question type:</label></td>
+        </tr>
+        <tr>
+            <td><label for="singleval">Single Valued:</label></td>
+            <td><input type="checkbox" id="que_type_single" /></td>
+        </tr>
+        <tr>
+            <td><label for="code">Coding:</label></td>
+            <td><input type="checkbox" id="que_type_code" /></td>
+        </tr>
+        <tr>
+            <td><label for="testcase">Testcase:</label></td>
+            <td><input type="text" id="que_testcase" /></td>
+        </tr>
+        <tr>
+            <td><label for="Solution">Solution:</label></td>
+            <td><input type="text" id="que_solution"  placeholder="Expected Answer"/></td>
+        </tr>
+    </table>
+</div>
+<button id="doSave" onclick="uiSaveQuestionDetails();" class="btn btn-primary">Add New Question</button>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', onLoad, false);
+    </script>
+{% endblock %}
